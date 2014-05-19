@@ -56,3 +56,7 @@ With this Data i show the changes happening in the Game, and provide a Directory
 I started this Project ± 2 Weeks ago, so everyting you see here is in a very messy state. You can see what gems and plugins i use in the gem file.
 
 Right now i'm working on the UI and '[Versioning](https://github.com/airblade/paper_trail)' so i can track and display changes over time.
+
+I work a lot with Trello, so here is a quick sneak peek of a Weeks Trello Activity
+
+![Cerberus Trello](http://i.imgur.com/njaV4up.png)
