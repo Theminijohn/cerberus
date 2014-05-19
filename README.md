@@ -2,7 +2,7 @@
 
 ### Cerberus is a [Grepolis](http://www.grepolis.com) Analytics Tool
 
-I'm pulling ever hour the latest Data from the Grepolis "[API](http://wiki.de.grepolis.com/wiki/Weltdaten)"
+I'm pulling every hour the latest Data from the Grepolis "[API](http://wiki.de.grepolis.com/wiki/Weltdaten)". You cann see all the Tasks under the 'lib/task' Directory
 
 ```ruby
 
