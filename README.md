@@ -60,3 +60,14 @@ Right now i'm working on the UI and '[Versioning](https://github.com/airblade/pa
 I work a lot with Trello, so here is a quick sneak peek of a Weeks Trello Activity
 
 ![Cerberus Trello](http://i.imgur.com/njaV4up.png)
+
+## A few Screenshots
+
+Player Index
+![Screenshot1](http://i.imgur.com/dXLT5c8.png)
+
+Alliance Show View
+![Screenshot2](http://i.imgur.com/G3LIrzs.png)
+
+Player Show View
+![Screenshot3](http://i.imgur.com/ULXu1hA.png)
