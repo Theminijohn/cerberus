@@ -50,3 +50,9 @@ The API consists of
 ```
 
 With this Data i show the changes happening in the Game, and provide a Directory for Analytics.
+
+## Project Info
+
+I started this Project ± 2 Weeks ago, so everyting you see here is in a very messy state.
+
+## Tools & Plugins used
