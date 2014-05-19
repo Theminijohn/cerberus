@@ -1,0 +1,108 @@
+@import "variables";
+@import "colors";
+
+// Cerberus Button
+// --------------------------------------------------
+
+.cerb-btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  vertical-align: middle;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  white-space: nowrap;
+  cursor: pointer;
+  zoom: 1;
+  background-color: transparent;
+  background-image: none;
+  @include border-radius(3px);
+  border: 1px solid #d8dee3;
+  color: #6f7c82;
+  text-shadow: 0 1px 1px white;
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    color: #bbb;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none;
+    @include opacity(.65);
+  }
+}
+
+
+
+.cerbtn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  vertical-align: middle;
+  padding: 6px 14px;
+  @include border-radius(3px);
+  @include cerb-shadow(0, 1px, rgba(0,0,0,0.05));
+  background-color: #f6f7f9;
+  border: 1px solid #bdc7d2;
+  font-size: 13px;
+  cursor: pointer;
+
+  background-image: -moz-linear-gradient(top,#f9fafb,#f2f3f6);
+  background-image: -ms-linear-gradient(top,#f9fafb,#f2f3f6);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#f9fafb),to(#f2f3f6));
+  background-image: -webkit-linear-gradient(top,#f9fafb,#f2f3f6);
+  background-image: -o-linear-gradient(top,#f9fafb 0,#f2f3f6 0);
+  background-image: linear-gradient(top,#f9fafb 0,#f2f3f6 0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9fafb',endColorstr='#f2f3f6',GradientType=0);
+  background-repeat: repeat-x;
+
+  &:active,
+  &.active {
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    color: #bbb;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none;
+    @include opacity(.65);
+  }
+}

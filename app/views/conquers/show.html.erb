@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @conquer.town_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @conquer.time %>
+</p>
+
+<p>
+  <strong>New player:</strong>
+  <%= @conquer.new_player_id %>
+</p>
+
+<p>
+  <strong>Old player:</strong>
+  <%= @conquer.old_player_id %>
+</p>
+
+<p>
+  <strong>New ally:</strong>
+  <%= @conquer.new_ally_id %>
+</p>
+
+<p>
+  <strong>Old ally:</strong>
+  <%= @conquer.old_ally_id %>
+</p>
+
+<p>
+  <strong>Town points:</strong>
+  <%= @conquer.town_points %>
+</p>
+
+<%= link_to 'Edit', edit_conquer_path(@conquer) %> |
+<%= link_to 'Back', conquers_path %>

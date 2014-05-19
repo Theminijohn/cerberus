@@ -1,0 +1,29 @@
+<h3><%= Island.all.count %> Inseln</h3>
+
+<table class="table table-hover table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Grepo Id</th>
+    <th>Koordinaten</th>
+    <th>Type Number</th>
+    <th>Available Towns</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @islands.each do |island| %>
+    <tr>
+      <td><%= island.grepo_id %></td>
+      <td><%= island.coordinates %></td>
+      <td><%= island.type_number %></td>
+      <td><%= island.available_towns %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+
+<div class="center">
+  <%= will_paginate @islands, renderer: BootstrapPagination::Rails %>
+</div>

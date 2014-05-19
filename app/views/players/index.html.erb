@@ -1,0 +1,81 @@
+<div class="pl_i_c">
+  <div class="pi_banner"></div>
+</div>
+
+
+<div class="container">
+
+
+  <div class="player_index_search">
+
+    <div class="title">
+      Playersearch
+      <div class="pull-right">
+        <i class="fa fa-users"></i> <%= number_with_delimiter(Player.all.size) %> Players
+      </div>
+    </div>
+
+    <div class="search_form">
+
+      <%= search_form_for @search, class: 'form-inline' do |f| %>
+
+        <%= f.condition_fields do |c| %>
+          <%= render 'players/condition_fields', f: c %>
+        <% end %>
+
+        <p class="add_button">
+          <%= link_to_add_fields f, :condition do %>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square-o fa-stack-2x" style=""></i>
+              <i class="fa fa-plus fa-stack-1x" style=""></i>
+            </span>
+          <% end %>
+        </p>
+
+        <div class="pull-right">
+          <%= f.submit "Search", class: "cerbtn" %>
+        </div>
+        <div class="clearfix"></div>
+      <% end %>
+
+
+    </div>
+
+  </div>
+
+
+
+  <div class="panel panel-default">
+    <table class="table table-hover table-bordered">
+      <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Allianz</th>
+        <th>Punkte</th>
+        <th>Städte</th>
+      </tr>
+      </thead>
+      <tbody>
+
+        <% @players.each do |player| %>
+          <tr>
+            <td><%= player.rank %></td>
+            <td><%= link_to player.name, player %></td>
+            <td><%= link_to player.alliance.name, player.alliance if player.alliance.present?%></td>
+            <td><%= number_with_delimiter(player.points) %></td>
+            <td><%= link_to player.town_count, player %></td>
+          </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="center">
+    <%= will_paginate @players, renderer: BootstrapPagination::Rails %>
+  </div>
+
+
+</div>

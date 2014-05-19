@@ -1,0 +1,31 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+$body-bg:                         #f8f9fb;
+$font-family-sans-serif:          'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-height:                   45px;
+$navbar-default-bg:               white;
+$navbar-default-brand-color:      #34495e;
+$brand-primary:                   #34495e;
+$jumbotron-bg:                    white;
+
+// 1000px Container Width
+$grid-gutter-width: 20px;
+$container-large-desktop: ((980px + $grid-gutter-width));
+
+@import 'bootstrap';
+
+.center {
+  text-align: center;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+body {
+  padding-top: 60px;
+}
+
+.cerberus_navbar {
+  border-bottom: 1px solid #dfe0e3;;
+}

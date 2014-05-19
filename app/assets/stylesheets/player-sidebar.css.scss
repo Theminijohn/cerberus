@@ -1,0 +1,75 @@
+@import "variables";
+@import "colors";
+
+
+// Search bar ============================
+//////////////////////////////////////////
+
+.cerberus_sidebar {
+  ul {
+    @include border-radius(3px);
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #c0c3d2;
+    li:first-child {
+      border-top: 0 none;
+    }
+    li {
+      border-top: 1px solid #c0c3d2;
+      position: relative;
+      margin: 0;
+      padding: 8px 10px;
+      font-size: 13px;
+      line-height: 20px;
+      z-index: 1222;
+      cursor: default;
+      &:hover {
+        background-color: #f6f7f9;
+      }
+    }
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+    -moz-box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+  }
+  // Player Bash List
+  .player_bash {
+    padding-top: 20px;
+  }
+  // Last Conquer
+  .player_last_conquer {
+    padding-top: 20px;
+    .view_all {
+      margin-left: 2px;
+      a {
+        text-decoration: none;
+        color: #758594;
+      }
+    }
+  }
+  .player_show_search {
+    padding-bottom: 20px;
+    input {
+      border: 1px solid #bdc7d2;
+    }
+    .btn-default {
+      border: 1px solid #bdc7d2;
+    }
+  }
+  // Tooltips
+  .tooltip.left .tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -5px;
+    border-left-color: darken(#bdc7d2, 5%);
+    border-width: 5px 0 5px 5px;
+  }
+  .tooltip-inner {
+    color: #758594;
+    background: #f6f7f9;
+    border: solid 1px #bdc7d2;
+    @include cerb-shadow(0, 1px, rgba(0,0,0,0.05));
+    @include border-radius(3px);
+  }
+}

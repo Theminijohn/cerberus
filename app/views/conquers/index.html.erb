@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Stadt</th>
+        <th>Neuer Spieler</th>
+        <th>Alter Spieler</th>
+        <th>Neue Allianz</th>
+        <th>Alte Allianz</th>
+        <th>Punkte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @conquers.includes(:player).each do |c| %>
+        <tr>
+          <td><%= c.conquer_time %></td>
+          <td><%= link_to c.town.name, c.town %></td>
+          <td><%= link_to c.player.name, c.player %></td>
+          <td><%= link_to c.old_player.name, c.old_player if c.old_player.present? %></td>
+          <td><%= link_to c.player.alliance.name, c.player.alliance if c.player.alliance.present? %></td>
+          <td><%= c.old_alliance.name if c.old_alliance.present? %></td>
+          <td><%= c.town_points %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="center">
+  <%= will_paginate @conquers, renderer: BootstrapPagination::Rails %>
+</div>

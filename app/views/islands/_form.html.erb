@@ -1,0 +1,37 @@
+<%= form_for(@island) do |f| %>
+  <% if @island.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@island.errors.count, "error") %> prohibited this island from being saved:</h2>
+
+      <ul>
+      <% @island.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :grepo_id %><br>
+    <%= f.number_field :grepo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :island_x %><br>
+    <%= f.number_field :island_x %>
+  </div>
+  <div class="field">
+    <%= f.label :island_y %><br>
+    <%= f.number_field :island_y %>
+  </div>
+  <div class="field">
+    <%= f.label :type_number %><br>
+    <%= f.number_field :type_number %>
+  </div>
+  <div class="field">
+    <%= f.label :available_towns %><br>
+    <%= f.number_field :available_towns %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

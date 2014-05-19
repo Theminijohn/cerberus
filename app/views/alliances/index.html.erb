@@ -1,0 +1,30 @@
+<h3><%= Alliance.all.count %> Alliances</h3>
+
+<table class="table table-hover table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Points</th>
+    <th>Towns</th>
+    <th>Members</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @alliances.each do |alliance| %>
+    <tr>
+      <td><%= alliance.rank %></td>
+      <td><%= link_to alliance.name, alliance %></td>
+      <td><%= number_with_delimiter(alliance.points) %></td>
+      <td><%= link_to alliance.town_count, alliance %></td>
+      <td><%= link_to alliance.member_count, alliance %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<div class="center">
+  <%= will_paginate @alliances, renderer: BootstrapPagination::Rails %>
+</div>

@@ -1,0 +1,72 @@
+@import "variables";
+@import "colors";
+
+// Cover
+.pl_i_c {
+  margin-top: -14px;
+  position: relative;
+  background-image: -webkit-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 40%, rgba(16, 47, 70, 0.26)), -webkit-linear-gradient(108deg, #26d0ce, #1a2980 100%);
+  background-image: -moz-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 40%, rgba(16, 47, 70, 0.26)), -moz-linear-gradient(108deg, #26d0ce, #1a2980 100%);
+  -webkit-box-shadow: inset 0 7px 6px -7px black;
+     -moz-box-shadow: inset 0 7px 6px -7px black;
+          box-shadow: inset 0 7px 6px -7px black;
+  z-index: -1;
+  .pi_banner {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  max-height: 226px;
+  margin: 0 auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 230px;
+  }
+}
+
+// Player Index Search
+.player_index_search {
+  color: #5c6179;
+  border: 1px solid #c0c3d2;
+  background-color: #f8f9fb;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+  margin-top: -180px;
+  margin-bottom: 40px;
+  @include border-radius(3px);
+  .title {
+    line-height: 32px;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    color: #737c93;
+    border-bottom: 1px solid #d5d7e1;
+    -webkit-box-shadow: inset 0 1px #fff;
+    -moz-box-shadow: inset 0 1px #fff;
+    box-shadow: inset 0 1px #fff;
+    background-color: #eff1f6;
+  }
+  .search_form {
+    padding: 15px 25px;
+    .add_button a {
+      color: #737c93;
+      &:hover {
+        color: darken(#737c93, 10%);
+      }
+    }
+  }
+  .search_field {
+    padding-bottom: 20px;
+    .remove_button a {
+      color: #ccc;
+      &:hover {
+        color: rgba(231, 76, 60,.8);
+      }
+    }
+  }
+  .search_field {
+    .s_att, .s_pred, .s_field {
+      padding-right: 10px;
+    }
+  }
+}

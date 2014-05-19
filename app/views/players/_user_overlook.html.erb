@@ -1,0 +1,69 @@
+<script type="text/javascript">
+  $(function () {
+    $('#overlook_container').highcharts({
+      chart: {
+        backgroundColor: '#f5f6f8'
+      },
+      title: {
+        text: 'Spieler Übersicht'
+      },
+      credits: {
+        enabled: false
+      },
+      xAxis: {
+        categories: ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag',' Sonntag']
+      },
+      labels: {
+        items: [{
+          html: 'Total fruit consumption',
+          style: {
+            left: '50px',
+            top: '18px',
+            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+          }
+        }]
+      },
+      series: [{
+        type: 'column',
+        name: 'Punkte',
+        data: [3, 2, 1, 3, 4, 3, 6],
+        color: '#ccc'
+      }, {
+        type: 'column',
+        name: 'Bashpunkte Angreifer',
+        data: [2, 3, 5, 7, 6, 3, 8]
+      }, {
+        type: 'column',
+        name: 'Bashpunkte Verteidiger',
+        data: [4, 3, 3, 9, 0, 2, 7],
+        color: '#000'
+      }, {
+        type: 'pie',
+        name: 'Punkte',
+        data: [{
+          name: 'Punkte/Woche',
+          y: 13,
+          color: '#ccc' // Jane's color
+        }, {
+          name: 'Bashpunkte Angreifer/Woche',
+          y: 23,
+          color: 'rgb(124, 181,236)' // John's color
+        }, {
+          name: 'Bashpunkte Verteidiger/Woche',
+          y: 19,
+          color: '#000' // Joe's color
+        }],
+        center: [100, 80],
+        size: 100,
+        showInLegend: false,
+        dataLabels: {
+          enabled: false
+        }
+      }]
+    });
+  });
+
+
+</script>
+
+<div id="overlook_container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>

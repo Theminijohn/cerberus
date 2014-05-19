@@ -1,0 +1,28 @@
+<h3><%= @alliance.name %> hat <%= @members.count %> Mitglieder</h3>
+
+<table class="table table-hover table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Grepo Id</th>
+    <th>Name</th>
+    <th>Points</th>
+    <th>Towns</th>
+    <th>Rank</th>
+  </tr>
+    </thead>
+  <tbody>
+    <% @members.each do |m| %>
+      <tr>
+        <td><%= m.grepo_id %></td>
+        <td><%= m.name %></td>
+        <td><%= m.points %></td>
+        <td><%= m.towns %></td>
+        <td><%= m.rank %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="center">
+  <%= will_paginate @members, renderer: BootstrapPagination::Rails %>
+</div>

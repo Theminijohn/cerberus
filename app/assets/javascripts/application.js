@@ -1,0 +1,9 @@
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require bootstrap
+//= require highcharts
+//= require exporting
+//= require turbolinks
+//= require select2
+//= require_tree .

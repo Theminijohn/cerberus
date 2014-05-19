@@ -1,0 +1,113 @@
+<div class="jumbotron center">
+  <p>
+    <%= link_to "Players", players_path, class: "btn btn-primary" %>
+    <%= link_to "Alliances", alliances_path, class: "btn btn-primary" %>
+    <%= link_to "Towns", towns_path, class: "btn btn-primary" %>
+    <%= link_to "Islands", islands_path, class: "btn btn-primary" %>
+    <%= link_to "Conquers", conquers_path, class: "btn btn-primary" %>
+  </p>
+  <br/>
+  <p>
+    We have <b><%= Player.all.count %></b> Players, <b><%= Alliance.all.count %></b> Alliances and
+    <b><%= Town.all.count %></b> Towns in our Database
+  </p>
+</div>
+
+
+
+
+<article id="content" class="nav-animation-element">
+  <aside class="update">
+    <p class="inner-col">
+      <a href="#">
+        <strong>135 new currencies.</strong>
+
+        Status Updated here
+        <span class="arrow">Read more</span>
+      </a>
+    </p>
+  </aside>
+</article>
+<br/>
+
+<div class="row home_ranks no-gutter">
+
+  <div class="cl col-md-4 hpr">
+    <%= link_to @first_player do %>
+      <span class="fa-stack fa-4x">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i style="color:#FFA500;" class="fa fa-trophy fa-stack-1x"></i>
+      </span>
+      <p class="b">
+        <%= @first_player.name %>
+      </p>
+      <p class="exp">
+        Rank 1 in der Spieler Bestenliste
+      </p>
+    <% end %>
+  </div>
+
+  <div class="cl col-md-4 har">
+    <%= link_to @first_alliance do %>
+      <span class="fa-stack fa-4x">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i style="color: #FFA500" class="fa fa-trophy fa-stack-1x"></i>
+      </span>
+      <p class="b">
+        <%= @first_alliance.name %>
+      </p>
+      <p class="exp">
+        Rank 1 in der Allianz Bestenliste
+      </p>
+    <% end %>
+  </div>
+
+  <div class="cl col-md-4 hpklr">
+    <%= link_to '#' do %>
+      <span class="fa-stack fa-4x">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i style="color: #FFA500" class="fa fa-trophy fa-stack-1x"></i>
+      </span>
+      <p class="b">
+        Giannakis
+      </p>
+      <p class="exp">
+        Rank 1 in der Bashpunkte Bestenliste
+      </p>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+.no_p_top {
+  margin-top: -14px;
+}
+
+// Colors
+$dark_c: #5c6179;
+
+
+
+
+// Mixins ====================
+//////////////////////////////
+
+// Border Radius
+@mixin border-radius($pixel) {
+  -webkit-border-radius: $pixel;
+  -moz-border-radius: $pixel;
+  -ms-border-radius: $pixel;
+  -o-border-radius: $pixel;
+  border-radius: $pixel;
+}
+
+// All border Radius
+@mixin border-radius-s($tl, $tr, $br, $bl) {
+  -webkit-border-top-left-radius: $tl;
+  -webkit-border-top-right-radius: $tr;
+  -webkit-border-bottom-right-radius: $br;
+  -webkit-border-bottom-left-radius: $bl;
+
+  -moz-border-radius-topleft: $tl;
+  -moz-border-radius-topright: $tr;
+  -moz-border-radius-bottomright: $br;
+  -moz-border-radius-bottomleft: $bl;
+
+  border-top-left-radius: $tl;
+  border-top-right-radius: $tr;
+  border-bottom-right-radius: $br;
+  border-bottom-left-radius: $bl;
+}
+
+// Transitions
+@mixin transition($property, $time, $method) {
+  -webkit-transition: $property $time $method;
+  -moz-transition: $property $time $method;
+  -ms-transition: $property $time $method;
+  -o-transition: $property $time $method;
+  transition: $property $time $method;
+}
+
+// Box Shadow
+@mixin cerb-shadow($px1, $px2, $color) {
+  -webkit-box-shadow: #{$px1} #{$px2} #{$color};
+  -moz-box-shadow: #{$px1} #{$px2} #{$color};
+  box-shadow: #{$px1} #{$px2} #{$color};
+}
+
+// Opacity (IE, FireFox, Chrome and Safari)
+@mixin opacity($value) {
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+
+// No gutter Rows ================
+//////////////////////////////////
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

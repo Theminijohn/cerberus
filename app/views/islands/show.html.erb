@@ -1,0 +1,33 @@
+<p>
+  <strong>Grepo:</strong>
+  <%= @island.grepo_id %>
+</p>
+
+<p>
+  <strong>Island x:</strong>
+  <%= @island.island_x %>
+</p>
+
+<p>
+  <strong>Island y:</strong>
+  <%= @island.island_y %>
+</p>
+
+<p>
+  <strong>Type number:</strong>
+  <%= @island.type_number %>
+</p>
+
+<p>
+  <strong>Available towns:</strong>
+  <%= @island.available_towns %>
+</p>
+
+
+<br/>
+<h3>Allianz abdeckung</h3>
+
+
+<% @island.towns.each do |t| %>
+  <b><%= t.name %></b>, des Spielers: <b><%= t.player.name %></b>, der Allianz: <b><%= t.player.alliance %></b> <br/>
+<% end %>

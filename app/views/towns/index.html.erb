@@ -1,0 +1,28 @@
+<h3><%= Town.all.count %> Towns</h3>
+
+<table class="table table-hover table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Spieler</th>
+    <th>Name</th>
+    <th>Koordinaten</th>
+    <th>Points</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @towns.includes(:player).each do |town| %>
+    <tr>
+      <td><%= link_to town.player.name, town.player %></td>
+      <td><%= link_to town.name, town %></td>
+      <td><%= town.coordinates %></td>
+      <td><%= town.points %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<div class="center">
+  <%= will_paginate @towns, renderer: BootstrapPagination::Rails %>
+</div>

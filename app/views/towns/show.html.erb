@@ -1,0 +1,113 @@
+<div class="row">
+
+  <div class="col-md-5 town_overview">
+
+    <ul>
+      <div class="top_cap"></div>
+      <li class="title">
+        <i class="fa fa-institution"></i> Stadt Übersicht
+      </li>
+      <li>
+        <div class="pull-left">
+          Name:
+        </div>
+        <div class="pull-right">
+          <%= @town.name %>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+
+      <li>
+        <div class="pull-left">
+          Punkte:
+        </div>
+        <div class="pull-right">
+          <%= @town.points %>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+
+      <li>
+        <div class="pull-left">
+          Spieler:
+        </div>
+        <div class="pull-right">
+          <%= link_to @town.player.name, @town.player %>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+
+      <li>
+        <div class="pull-left">
+          Allianz:
+        </div>
+        <div class="pull-right">
+          <%= link_to @town.player.alliance.name, @town.player.alliance if @town.player.alliance.present? %>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+    </ul>
+
+    <% if @town.conquers.present? %>
+      <div class="town_panel town_conquers">
+        <div class="top_cap"></div>
+        <div class="title"><i class="fa fa-flag"></i> Kolonisationen</div>
+
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+            <th>Datum</th>
+            <th>Alter Spieler</th>
+            <th>Alte Allianz</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @town.conquers.each do |c| %>
+            <tr>
+              <td><%= c.conquer_time %></td>
+              <td><%= link_to c.old_player.name, c.old_player if c.old_player.present? %></td>
+              <td><%= link_to c.old_alliance.name,  c.old_alliance if c.old_alliance.present? %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+
+  </div> <!-- End left Column -->
+
+
+  <div class="col-md-7 town_island_overview">
+
+    <div class="town_panel">
+      <div class="top_cap"></div>
+      <div class="title">
+        <i class="fa fa-compass"></i> Insel Übersicht
+        <div class="pull-right">
+          <%= @town.coordinates %>
+        </div>
+      </div>
+      <table class="table table-condensed">
+        <thead>
+        <tr>
+          <th>Spieler</th>
+          <th>Stadt</th>
+          <th>Punkte</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% Town.where(:coordinates => @town.coordinates).includes(:player).each do |t| %>
+          <tr>
+            <td><%= link_to t.player.name, t.player %></td>
+            <td><%= link_to t.name, t %></td>
+            <td><%= t.points %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div> <!-- End right Column -->
+
+</div>

@@ -1,0 +1,96 @@
+@import "variables";
+@import "colors";
+
+// Right Side ================================
+//////////////////////////////////////////////
+.cerb_player_head {
+  position: relative;
+  display: block;
+  height: 250px;
+  background-image: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 40%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 100%);
+  background-image: -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 40%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#26d0ce,#1a2980 100%);
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1em;
+  line-height: 1.5em;
+  .pl_q_info  {
+    padding: 15px 25px;
+    height: 70px;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    i {
+      margin-right: 5px;
+    }
+  }
+  .pl_name {
+    text-align: center;
+    padding-top: 30px;
+    height: 110px;
+    p {
+      font-size: 1.5em;
+      border: 1px solid rgba(255,255,255,0.9);
+      display: inline-block;
+      padding: 10px 20px;
+      @include border-radius(3px);
+      vertical-align: middle;
+    }
+  }
+  .pl_q_u_info {
+    padding: 30px 25px 15px 25px;
+    height: 70px;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .current_version {
+      i { margin-right: 5px; }
+    }
+    .diff_versions {
+      i { margin-left: 3px; }
+    }
+  }
+}
+
+
+// Content ================================
+///////////////////////////////////////////
+.player_content {
+  .nav-tabs {
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #f8f9fb;
+    -webkit-box-shadow: inset 0 4px 2px -2px #eaeaec;
+    -moz-box-shadow: inset 0 4px 2px -2px #eaeaec;
+    box-shadow: inset 0 4px 2px -2px #eaeaec;
+    a {
+      color: $dark_c;
+    }
+    li.active a {
+      color: $dark_c;
+      background-color: #f5f6f8;
+    }
+  }
+  .tab-content {
+    padding: 15px 25px;
+  }
+  .panel.pl_tab {
+    font-size: 13px;
+  }
+  .pl_tab tbody tr td a {
+    text-decoration: none;
+  }
+}
+
+
+
+// Table ================================
+///////////////////////////////////////////
+.cerberus_table {
+  @include border-radius(3px);
+  color: #767676;
+  thead tr.table_nav {
+    background-color: whitesmoke;
+  }
+}

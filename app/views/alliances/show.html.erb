@@ -1,0 +1,288 @@
+<div class="row no-gutter no_p_top">
+
+  <div class="col-md-3">
+
+
+    <div class="cerberus_sidebar">
+
+      <div class="input-group player_show_search">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+
+      <%= link_to players_path, class: "cerbtn" do %>
+        <i class="fa fa-user"></i> Spieler
+      <% end %>
+
+      <%= link_to alliances_path, class: "cerbtn" do %>
+        <i class="fa fa-shield"></i> Allianzen
+      <% end %>
+
+      <div class="alliance_bash">
+
+       <p>
+         Kampfpunkte
+       </p>
+
+        <ul>
+          <li class="cerb-tip" data-title="Rank <%= @alliance.all_rank %>" data-placement="left">
+            <div class="pull-left">
+              Kämpfer
+            </div>
+            <div class="pull-right">
+              <%= @alliance.all_points %> punkte
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+          <li class="cerb-tip" data-title="Rank <%= @alliance.att_rank %>" data-placement="left">
+            <div class="pull-left">
+              Angreifer
+            </div>
+            <div class="pull-right">
+              <%= @alliance.att_points %> punkte
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+          <li class="cerb-tip" data-title="Rank <%= @alliance.def_rank %>" data-placement="left">
+            <div class="pull-left">
+              Verteidiger
+            </div>
+            <div class="pull-right">
+              <%= @alliance.def_points %> punkte
+            </div>
+            <div class="clearfix"></div>
+          </li>
+        </ul>
+
+      </div>
+
+
+    </div> <!-- End Sidebar -->
+
+
+  </div>
+
+  <!-- Right Side -->
+  <div class="col-md-9">
+    <div class="cerberus_content">
+
+
+      <!-- Alliance Header -->
+      <div class="cerb_alliance_head">
+
+        <!-- Top Info Bar -->
+        <div class="al_q_info">
+
+          <div class="pull-left">
+            <i class="fa fa-trophy fa-lg"></i> <%= @alliance.rank %>
+          </div>
+
+          <!-- Rank Info -->
+          <div class="pull-right">
+            <i class="fa fa-users fa-lg"></i> <%= @alliance.players.count %>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+
+
+        <!-- Name -->
+        <div class="al_name">
+          <p>
+            <%= @alliance.name %>
+          </p>
+        </div>
+
+        <!-- Bottom Info Bar -->
+        <div class="al_q_u_info">
+
+          <!-- Points Info - Left -->
+          <div class="pull-left">
+            <div class="points">
+              <span class="current_version">
+                <i class="fa fa-bar-chart-o fa-lg"></i> <%= number_with_delimiter(@alliance.points) %>
+              </span>
+
+              <!-- Difference of Versions-->
+              <span class="diff_versions">
+                <i style="color:rgba(46,204,113,0.6)" class="fa fa-chevron-circle-up"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Towns Info - Right -->
+          <div class="pull-right">
+            <div class="towns">
+              <!-- Current Towns -->
+              <span class="current_version">
+                <i class="fa fa-institution fa-lg"></i><%= pluralize(@alliance.town_count, 'Stadt', 'Städte') %>
+              </span>
+
+              <!-- Difference of Versions -->
+              <span class="diff_versions">
+                <i style="color:rgba(46,204,113,0.6)" class="fa fa-chevron-circle-up"></i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- Alliance Content -->
+      <div class="alliance_content">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Übersicht</a></li>
+          <li><a href="#members" data-toggle="tab"><i class="fa fa-users"></i> Mitglieder</a></li>
+          <li><a href="#towns" data-toggle="tab"><i class="fa fa-institution"></i>Städte</a></li>
+          <li><a href="#bashrank" data-toggle="tab"><i class="fa fa-paw"></i> Bashrankliste</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+          <!-- Overview -->
+          <div class="tab-pane active" id="home">
+            Übersicht von der Allianz
+          </div>
+
+          <!-- Members -->
+          <div class="tab-pane" id="members">
+
+            <div class="panel panel-default al_tab">
+              <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Punkte</th>
+                  <th>Städte</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <% @alliance.players.order("Rank ASC").each do |p| %>
+                    <tr>
+                      <td><%= p.rank %></td>
+                      <td>
+                        <%= link_to p do %>
+                          <%= p.name %>
+                          <span class="direct">
+                            <i class="fa fa-caret-square-o-right"></i>
+                          </span>
+                        <% end %>
+                      </td>
+                      <td><%= number_with_delimiter(p.points) %></td>
+                      <td><%= p.towns.count %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+          <!-- Towns -->
+          <div class="tab-pane" id="towns">
+
+            <div class="alliance_towns_panel">
+              <div class="top_cap"></div>
+              <div class="inner">
+                Search
+              </div>
+            </div>
+
+            <div class="panel panel-default al_tab">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Punkte</th>
+                    <th>Koordinaten</th>
+                    <th>Meer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @alliance_towns.each do |t| %>
+                    <tr>
+                      <td>
+                        <%= link_to t do %>
+                          <%= t.name %>
+                          <span class="direct">
+                            <i class="fa fa-caret-square-o-right"></i>
+                          </span>
+                        <% end %>
+                      </td>
+                      <td><%= number_with_delimiter(t.points) %></td>
+                      <td><%= link_to t.coordinates, t.island_link %></td>
+                      <td><%= t.ocean %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="center">
+              <%= will_paginate @alliance_towns, renderer: BootstrapPagination::Rails %>
+            </div>
+
+          </div> <!-- End Towns tab -->
+
+
+          <!-- Bash Rank List-->
+          <div class="tab-pane" id="bashrank">
+
+            <div class="panel panel-default al_tab">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Spieler</th>
+                    <th>Kämpfer</th>
+                    <th>Angreifer</th>
+                    <th>Verteidiger</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <% @alliance.players.order("all_points desc").each do |p| %>
+                    <tr>
+                      <td>
+                        <%= link_to p, id: "something" do %>
+                          <%= p.name %>
+                          <span class="direct">
+                            <i class="fa fa-caret-square-o-right"></i>
+                          </span>
+                        <% end %>
+                      </td>
+                      <td><%= number_with_delimiter(p.all_points) %></td>
+                      <td><%= number_with_delimiter(p.att_points) %></td>
+                      <td><%= number_with_delimiter(p.def_points) %></td>
+                    </tr>
+                  <% end %>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div> <!-- #End Bash Rank -->
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+</div>
+

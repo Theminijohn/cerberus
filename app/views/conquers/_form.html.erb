@@ -1,0 +1,45 @@
+<%= form_for(@conquer) do |f| %>
+  <% if @conquer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conquer.errors.count, "error") %> prohibited this conquer from being saved:</h2>
+
+      <ul>
+      <% @conquer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :town_id %><br>
+    <%= f.number_field :town_id %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.number_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :new_player_id %><br>
+    <%= f.number_field :new_player_id %>
+  </div>
+  <div class="field">
+    <%= f.label :old_player_id %><br>
+    <%= f.number_field :old_player_id %>
+  </div>
+  <div class="field">
+    <%= f.label :new_ally_id %><br>
+    <%= f.number_field :new_ally_id %>
+  </div>
+  <div class="field">
+    <%= f.label :old_ally_id %><br>
+    <%= f.number_field :old_ally_id %>
+  </div>
+  <div class="field">
+    <%= f.label :town_points %><br>
+    <%= f.number_field :town_points %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

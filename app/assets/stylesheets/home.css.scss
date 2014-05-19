@@ -1,0 +1,93 @@
+@import "variables";
+@import "colors";
+
+// Update line
+aside.update {
+  background: #fff;
+  border-bottom: 1px solid rgba(49,78,95,0.12);
+  p {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1em;
+    padding: 0;
+    a {
+      color: #6f7c82;
+      display: block;
+      padding: 1em 0;
+    }
+  }
+}
+
+// Bestenliste
+.home_ranks {
+  border: 1px solid rgba(49,78,95,0.09);
+  // Every Section
+  .cl {
+    display: table-cell;
+    width: 33.333%;
+    text-align: center;
+    @include transition(background-color, 200ms, ease);
+    a {
+      padding-top: 38px;
+      padding-bottom: 40px;
+      display: block;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &:nth-child(1) a {
+      border-right: 1px solid rgba(49,78,95,0.09);
+    }
+    &:nth-child(2) a {
+      border-right: 1px solid rgba(49,78,95,0.09);
+    }
+    &:hover {
+      background-color: darken(#f8f9fb, 3%);
+    }
+    .b {
+      font-size: 1.5em;
+      line-height: 1.8em;
+      margin: 0;
+      padding: 0;
+    }
+    .exp {
+      margin-top: -5px;
+      color: #6f7c82;
+    }
+  }
+  .hpr {
+  }
+  .har {
+  }
+  .hpklr {
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

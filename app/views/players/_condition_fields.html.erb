@@ -1,0 +1,24 @@
+<div class="field search_field">
+
+  <span class="s_att">
+    <%= f.attribute_fields do |a| %>
+      <%= a.attribute_select({}, :id => 'pi-attribute') %>
+    <% end %>
+  </span>
+
+  <span class="s_pred">
+    <%= f.predicate_select({only: [:gt, :lt, :cont], compounds: false}, :id => 'pi-predicate') %>
+  </span>
+
+  <span class="s_field">
+    <%= f.value_fields do |v| %>
+      <%= v.text_field :value, class: "form-control" %>
+    <% end %>
+  </span>
+
+  <span class="pull-right remove_button">
+    <%= link_to '#', class: "remove_fields" do %>
+      <i class="fa fa-times fa-lg"></i>
+    <% end %>
+  </span>
+</div>

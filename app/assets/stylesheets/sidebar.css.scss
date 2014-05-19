@@ -1,0 +1,20 @@
+// Content - left
+.cerberus_sidebar {
+  overflow: visible;
+  min-height: 100%;
+  width: 245px;
+  border-left: 1px solid #d5d7e1;
+  border-right: 1px solid #d5d7e1;
+  background-color: #eef1f8;
+  position: fixed;
+  padding: 15px;
+  color: #758594;
+}
+
+// Content - Right
+.cerberus_content {
+  background-color: #f5f6f8;
+  border-right: 1px solid #d5d7e1;
+  min-height: 1000px;
+  position: relative;
+}

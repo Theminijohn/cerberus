@@ -1,0 +1,303 @@
+<div class="row no-gutter no_p_top">
+
+  <div class="col-md-3">
+
+
+    <div class="cerberus_sidebar">
+
+      <div class="input-group player_show_search">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+
+      <%= link_to players_path, class: "cerbtn" do %>
+        <i class="fa fa-user"></i> Spieler
+      <% end %>
+
+      <%= link_to alliances_path, class: "cerbtn" do %>
+        <i class="fa fa-shield"></i> Allianzen
+      <% end %>
+
+      <div class="player_bash">
+
+        <p>
+          Kampfpunkte
+        </p>
+
+        <ul>
+          <li class="cerb-tip" data-title="Rank <%= @player.all_rank %>" data-placement="left">
+            <div class="pull-left">
+              Kämpfer
+            </div>
+            <div class="pull-right">
+              <%= @player.all_points %> punkte
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+          <li class="cerb-tip" data-title="Rank <%= @player.att_rank %>" data-placement="left">
+            <div class="pull-left">
+              Angreifer
+            </div>
+            <div class="pull-right">
+              <%= @player.att_points %> punkte
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+          <li class="cerb-tip" data-title="Rank <%= @player.def_rank %>" data-placement="left">
+            <div class="pull-left">
+              Verteidiger
+            </div>
+            <div class="pull-right">
+              <%= @player.def_points %> punkte
+            </div>
+            <div class="clearfix"></div>
+          </li>
+        </ul>
+
+      </div>
+
+      <% if @player.conquers.present? %>
+      <div class="player_last_conquer">
+        <p>
+          Letzte Eroberungen
+        </p>
+
+        <ul>
+          <% @player.conquers.order("time DESC").first(3).each do |c| %>
+            <li class="cerb-tip" data-title="<%= c.conquer_time %>" data-placement="left">
+              <div class="pull-left">
+                <%= link_to c.old_player.name.capitalize, c.old_player if c.old_player.present? %>
+                <small>+ <%= c.town_points %></small>
+              </div>
+              <div class="pull-right">
+                <% if c.intern_conquer? %>
+                  <span class="label label-success">IEO</span>
+                <% else %>
+                  <span class="label label-danger">EO</span>
+                <% end %>
+              </div>
+              <div class="clearfix"></div>
+            </li>
+          <% end %>
+        </ul>
+
+        <small class="view_all">
+          <%= link_to "Alle Eroberungen Anzeigen", "#conquers", 'data-toggle' => 'tab' %>
+        </small>
+
+      </div>
+      <% end %>
+
+
+    </div>
+
+
+  </div>
+
+  <div class="col-md-9">
+    <div class="cerberus_content">
+
+      <!-- Player Header -->
+      <div class="cerb_player_head">
+
+        <!-- Top Info Bar -->
+        <div class="pl_q_info">
+
+          <!-- Alliance Info-->
+          <div class="pull-left">
+            <% if @player.alliance.present? %>
+              <i class="fa fa-shield fa-lg"></i> <%= link_to @player.alliance.name, @player.alliance %>
+            <% else %>
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-shield fa-stack-1x"></i>
+                <i class="fa fa-ban fa-stack-2x text-danger"></i>
+              </span>
+              Keine Allianz
+            <% end %>
+          </div>
+
+          <!-- Rank Info -->
+          <div class="pull-right">
+            <i class="fa fa-trophy fa-lg"></i> <%= @player.rank %>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+
+
+        <!-- Name -->
+        <div class="pl_name">
+          <p>
+            <%= @player.name %>
+          </p>
+        </div>
+
+        <!-- Bottom Info Bar -->
+        <div class="pl_q_u_info">
+
+          <!-- Points Info -->
+          <div class="pull-left">
+
+            <!-- Player Points-->
+            <div class="points">
+
+              <!-- Current Points-->
+              <span class="current_version">
+                <i class="fa fa-bar-chart-o fa-lg"></i> <%= number_with_delimiter(@player.points) %>
+              </span>
+
+              <!-- Difference of Versions-->
+              <span class="diff_versions">
+                <i style="color:rgba(46,204,113,0.6)" class="fa fa-chevron-circle-up"></i>
+              </span>
+
+            </div>
+
+          </div>
+
+          <!-- Towns Info -->
+          <div class="pull-right">
+
+            <!-- Player Towns-->
+            <div class="towns">
+
+              <!-- Current Towns -->
+              <span class="current_version">
+                <i class="fa fa-institution fa-lg"></i><%= pluralize(@player.town_count, 'Stadt', 'Städte') %>
+              </span>
+
+              <!-- Difference of Versions -->
+              <span class="diff_versions">
+                <i style="color:rgba(46,204,113,0.6)" class="fa fa-chevron-circle-up"></i>
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div> <!-- Player Header End -->
+
+
+      <!-- Player Content -->
+      <div class="player_content">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#overlook" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Übersicht</a></li>
+          <li><a href="#towns" data-toggle="tab"><i class="fa fa-institution"></i> Städte</a></li>
+          <li><a href="#conquers" data-toggle="tab"><i class="fa fa-flag"></i> Eroberungen</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+          <!-- Overlook Tab -->
+          <div class="tab-pane active" id="overlook">
+
+            <%= render 'players/user_overlook' %>
+
+          </div> <!-- End Tab Overlook -->
+
+          <!-- Towns Tab-->
+          <div class="tab-pane" id="towns">
+
+            <div class="panel panel-default pl_tab">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr class="table_nav">
+                    <th>Name</th>
+                    <th>Punkte</th>
+                    <th>Koordinaten</th>
+                    <th>Meer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @player.towns.each do |t| %>
+                    <tr>
+                      <td><%= link_to t.name, t %></td>
+                      <td><%= t.points %></td>
+                      <td><%= link_to t.coordinates, t.island_link %></td>
+                      <td><%= t.ocean %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+
+          </div> <!-- End Towns Tab -->
+
+
+          <!-- Conquers Tab -->
+          <div class="tab-pane" id="conquers">
+
+            <% if @player.conquers.present? %>
+              <div class="panel panel-default pl_tab">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>Datum</th>
+                      <th>Stadt</th>
+                      <th>Alter Spieler</th>
+                      <th>Alte Allianz</th>
+                      <th>Punkte</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @player.conquers.order("time DESC").each do |c| %>
+                      <tr>
+                        <td><%= c.conquer_time %></td>
+                        <td><%= link_to c.town.name, c.town %></td>
+                        <td><%= link_to c.old_player.name, c.old_player if c.old_player.present? %></td>
+                        <td><%= link_to c.old_alliance.name, c.old_alliance if c.old_alliance.present? %></td>
+                        <td><%= c.town_points %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            <% else %>
+              <div class="center">
+                <%= @player.name %> hat noch keine Kolonisationen
+              </div>
+            <% end %>
+
+          </div> <!-- End Conquers Tab -->
+
+        </div>
+
+      </div> <!-- End Player Content -->
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

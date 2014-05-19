@@ -1,0 +1,29 @@
+<div class="pl_i_search">
+
+  <%= search_form_for @search, class: "cerberus-search form-inline", role: "form" do |f| %>
+
+    <div class="form-group sn">
+      <%= f.text_field :name_cont, class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="form-group spg">
+      <%= f.text_field :points_gteq, class: "form-control", placeholder: "Punkte ab" %>
+    </div>
+    <div class="form-group spl">
+      <%= f.text_field :points_lteq, class: "form-control", placeholder: "bis" %>
+    </div>
+
+    <div class="form-group spl">
+      <%= f.text_field :town_count_gteq, class: "form-control", placeholder: "Städte ab" %>
+    </div>
+    <div class="form-group spl">
+      <%= f.text_field :town_count_lteq, class: "form-control", placeholder: "bis" %>
+    </div>
+
+    <button type="submit" class="btn btn-default">
+      Suchen
+    </button>
+
+  <% end %>
+
+</div>
