@@ -53,6 +53,6 @@ With this Data i show the changes happening in the Game, and provide a Directory
 
 ## Project Info
 
-I started this Project ± 2 Weeks ago, so everyting you see here is in a very messy state.
+I started this Project ± 2 Weeks ago, so everyting you see here is in a very messy state. You can see what gems and plugins i use in the gem file.
 
-## Tools & Plugins used
+Right now i'm working on the UI and '[Versioning](https://github.com/airblade/paper_trail)' so i can track and display changes over time.
